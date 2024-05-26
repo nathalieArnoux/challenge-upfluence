@@ -1,23 +1,13 @@
 import "./App.css";
+import handleNewPost from "../../utils/handleNewPost";
 import { useEffect, useState } from "react";
 import Counter from "../Counter/Counter";
-// import PunchCard from "../PunchCard/PunchCard";
+import PunchCard from "../PunchCard/PunchCard";
 
 function App() {
   // state
-  // initials values to store the type, day and hour of each post
-  const initialCounts = {
-    pin: {},
-    instagram_media: {},
-    youtube_video: {},
-    article: {},
-    tweet: {},
-    facebook_status: {},
-    tiktok_video: {},
-    twitch_stream: {},
-  };
-  // initial values used to store the counts of each type of post
-  const initialPostCounts = {
+  // stores the counts of each type of post
+  const [postCounts, setPostCounts] = useState({
     total: 0,
     pin: 0,
     instagram_media: 0,
@@ -27,42 +17,26 @@ function App() {
     facebook_status: 0,
     tiktok_video: 0,
     twitch_stream: 0,
-  };
-  const [counts, setCounts] = useState(initialCounts);
-  const [postCounts, setPostCounts] = useState(initialPostCounts);
+  });
+  // stores the type, day and hour of each post to pass to the punch card
+  const [counts, setCounts] = useState({
+    pin: {},
+    instagram_media: {},
+    youtube_video: {},
+    article: {},
+    tweet: {},
+    facebook_status: {},
+    tiktok_video: {},
+    twitch_stream: {},
+  });
 
   // properties
+  // get a simple array of all count numbers, finds the highest and stores it
   const maxCount = Math.max(
     ...Object.values(counts).flatMap((typeCounts) => Object.values(typeCounts)),
   );
 
-  // method(s)
-  const handleNewPost = (postData, setCounts, setPostCounts) => {
-    const [type, details] = Object.entries(postData)[0];
-    const date = new Date(details.timestamp * 1000); // convert to milliseconds
-    const day = date.getUTCDay();
-    const hour = date.getUTCHours();
-    const key = `${day}-${hour}`;
-
-    setCounts((prevCounts) => {
-      const newCounts = { ...prevCounts };
-      console.log(newCounts);
-      // Ensure the key exists in the type or add it
-      if (!newCounts[type][key]) {
-        newCounts[type][key] = 0;
-      }
-      newCounts[type][key]++; // adds one to the current key
-      return newCounts; // returns the new values to store in the state
-    });
-
-    setPostCounts((prevPostCounts) => {
-      const newPostCounts = { ...prevPostCounts };
-      newPostCounts.total++; // adds one to total
-      newPostCounts[type]++; // adds one to the current type
-      return newPostCounts; // returns the new values to store in the state
-    });
-  };
-
+  // connecting to SSE stream
   useEffect(() => {
     const evtSource = new EventSource("https://stream.upfluence.co/stream");
     evtSource.onmessage = (evt) => {
@@ -81,7 +55,7 @@ function App() {
       </header>
       <main>
         <Counter postCounts={postCounts} />
-        {/* <PunchCard /> */}
+        <PunchCard counts={counts} maxCount={maxCount} />
       </main>
       <footer>
         <p className="footer">Nathalie Arnoux - 2024</p>

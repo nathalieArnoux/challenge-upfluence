@@ -1,3 +1,5 @@
+@import "../../variables.css";
+
 .grid-container {
   margin: 0 auto;
   display: grid;
@@ -42,17 +44,50 @@
       border: 1px solid #ddd;
     }
 
-    .grid-hour-of-day {
+    .grid-dots {
+      display: grid;
+      grid-template-columns: repeat(2, 25px);
+      grid-template-rows: repeat(4, 25px);
       width: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #fffefe;
+      place-items: center;
+      background-color: #fafdff;
       border: 1px solid #ddd;
 
       .grid-dot {
         border-radius: 50%;
-        background-color: blue;
+        border: 1px solid #ddd;
+
+        &.pin {
+          background-color: var(--pin-color);
+        }
+
+        &.instagram_media {
+          background-color: var(--insta-color);
+        }
+
+        &.youtube_video {
+          background-color: var(--youtube-color);
+        }
+
+        &.article {
+          background-color: var(--article-color);
+        }
+
+        &.tweet {
+          background-color: var(--tweet-color);
+        }
+
+        &.facebook_status {
+          background-color: var(--facebook-color);
+        }
+
+        &.tiktok_video {
+          background-color: var(--tiktok-color);
+        }
+
+        &.twitch_stream {
+          background-color: var(--twitch-color);
+        }
       }
     }
   }

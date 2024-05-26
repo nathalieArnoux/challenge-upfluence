@@ -52,7 +52,13 @@ A lot of grid and flex but the result looks ok.
 Realized a little late that I forgot to handle post types independently so I had to reorganize my code.
 Struggled with how to structure the code so it's not too hard to read.
 
+### 4 - Responsive
+
+I ended up spending so much time on understanding the needed functions and researching everything that I forgot to consider a "mobile-first" approach and use TailwindCSS...
+
 ## Things to add later
 
+- RESPONSIVE !! :'(
 - button to connect / disconnect to SSE stream.
 - french week format: starting by monday instead of sunday. Or option to toggle.
+- count displays when hovering a dot
