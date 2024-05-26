@@ -1,0 +1,63 @@
+@import "../../variables.css";
+
+.counters {
+  display: flex;
+  justify-content: space-evenly;
+  width: 1540px;
+  margin: 6px auto;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 3px;
+}
+
+.counters-type {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+}
+
+li {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+.counter-dot {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+
+  &.pin {
+    background-color: var(--pin-color);
+  }
+
+  &.instagram_media {
+    background-color: var(--insta-color);
+  }
+
+  &.youtube_video {
+    background-color: var(--youtube-color);
+  }
+
+  &.article {
+    background-color: var(--article-color);
+  }
+
+  &.tweet {
+    background-color: var(--tweet-color);
+  }
+
+  &.facebook_status {
+    background-color: var(--facebook-color);
+  }
+
+  &.tiktok_video {
+    background-color: var(--tiktok-color);
+  }
+
+  &.twitch_stream {
+    background-color: var(--twitch-color);
+  }
+}

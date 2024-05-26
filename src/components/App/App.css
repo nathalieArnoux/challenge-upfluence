@@ -1,9 +1,19 @@
 .App {
-  background: rgb(238, 174, 202);
-  background: linear-gradient(
-    45deg,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  );
+  background: rgb(195, 220, 248) 100%;
   height: 100vh;
+
+  .title {
+    font-weight: 800;
+    font-size: x-large;
+    text-align: center;
+    margin: 0 auto 20px auto;
+    padding-top: 10px;
+  }
+
+  .footer {
+    padding-top: 3px;
+    font-size: x-small;
+    text-align: center;
+    font-style: italic;
+  }
 }
