@@ -2,6 +2,9 @@
 
 ## Content implemented
 
+1. Connection to SSE stream
+2. Receiving posts and storing useful data for every received post
+
 ## Difficulties encountered
 
 ### 1 - SSE
