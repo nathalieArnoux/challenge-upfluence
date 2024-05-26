@@ -4,6 +4,7 @@
 
 1. Connection to SSE stream
 2. Receiving posts and storing useful data for every received post
+3. Punchcard-like grid system to display messages per day and hour
 
 ## Difficulties encountered
 
@@ -39,5 +40,9 @@ New object (OOP?) with SSE URL as parameter
 Object.entries(obj) => returns array of property-value pairs, used to store type on one hand and details on the other, gives easier access to details.
 
 Object.entries(obj)[0] => why [0]? because it's already considered an array here.
+
+### 2 - Punch card
+
+A lot of grid and flex but the result looks ok.
 
 ## Things to add later

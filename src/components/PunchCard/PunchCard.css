@@ -1,0 +1,55 @@
+.grid-container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 75px repeat(7, 100px);
+  gap: 1px;
+  padding: 10px;
+  width: fit-content;
+
+  div {
+    border: 1px solid #ddd;
+    place-content: center;
+    text-align: center;
+    background-color: #fffefe;
+    grid-column: span 1;
+  }
+
+  .grid-hours {
+    display: flex;
+    height: 75px;
+    place-self: end;
+
+    .grid-empty {
+      width: 100px;
+      background-color: aliceblue;
+      border: none;
+    }
+
+    .grid-hour {
+      width: 60px;
+      background-color: #e9e9e9;
+    }
+  }
+
+  .grid-days {
+    display: flex;
+
+    .grid-day {
+      width: 100px;
+      font-weight: bold;
+      background-color: #e9e9e9;
+    }
+
+    .grid-hour-of-day {
+      width: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .grid-dot {
+        border-radius: 50%;
+        background-color: blue;
+      }
+    }
+  }
+}

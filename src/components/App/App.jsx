@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PunchCard from "../PunchCard/PunchCard";
 
 function App() {
   // state(s)
@@ -26,8 +27,6 @@ function App() {
     return () => evtSource.close();
   }, []);
 
-  console.log(data);
-
   return (
     <>
       {/*
@@ -36,6 +35,7 @@ function App() {
         punchCard
       footer 
       */}
+      <PunchCard data={data} />
     </>
   );
 }
