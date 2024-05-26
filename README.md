@@ -7,6 +7,7 @@
 3. Punchcard-like grid system to display messages per day and hour
 4. Counters (dynamic) to visualize number of posts received (total and per type)
 5. Simple header and footer
+6. Style with TailwindCSS
 
 ## Difficulties encountered
 
@@ -54,7 +55,7 @@ Struggled with how to structure the code so it's not too hard to read.
 
 ### 4 - Responsive
 
-I ended up spending so much time on understanding the needed functions and researching everything that I forgot to consider a "mobile-first" approach and use TailwindCSS...
+I ended up spending so much time on understanding the needed functions and researching everything that I even forgot to consider a "mobile-first" approach.
 
 ## Things to add later
 
