@@ -1,4 +1,6 @@
+import "./App.css";
 import { useEffect, useState } from "react";
+import Counter from "../Counter/Counter";
 import PunchCard from "../PunchCard/PunchCard";
 
 function App() {
@@ -28,15 +30,18 @@ function App() {
   }, []);
 
   return (
-    <>
-      {/*
-      header
-      main
-        punchCard
-      footer 
-      */}
-      <PunchCard data={data} />
-    </>
+    <div className="App">
+      <header>
+        <h1 className="title">Social Posts Visualization</h1>
+      </header>
+      <main>
+        <Counter />
+        <PunchCard data={data} />
+      </main>
+      <footer>
+        <p className="footer">Nathalie Arnoux - 2024</p>
+      </footer>
+    </div>
   );
 }
 

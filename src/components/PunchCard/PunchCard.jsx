@@ -25,7 +25,7 @@ const PunchCard = ({ data }) => {
   const maxCount = Math.max(...Object.values(counts));
 
   return (
-    <div className="grid-container">
+    <section className="grid-container">
       <div className="grid-hours">
         <div className="grid-empty"></div>
         {hours.map((hour) => (
@@ -58,7 +58,7 @@ const PunchCard = ({ data }) => {
           })}
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 
