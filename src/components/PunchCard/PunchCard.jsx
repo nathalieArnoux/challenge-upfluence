@@ -1,7 +1,7 @@
 import "./PunchCard.css";
 import PropTypes from "prop-types";
 
-const PunchCard = ({ data }) => {
+const PunchCard = ({ counts, maxCount }) => {
   // properties
   // creates an array of length = 24 (for each hour) and fill it with its own keys
   const hours = [...Array(24).keys()];
@@ -14,15 +14,6 @@ const PunchCard = ({ data }) => {
     "Friday",
     "Saturday",
   ];
-  // saves count for each day-hour pair key
-  const counts = {};
-  data.forEach(({ day, hour }) => {
-    const key = `${day}-${hour}`;
-    counts[key] = (counts[key] || 0) + 1;
-  });
-
-  // checks all counts for each day-hour, and saves the highest one
-  const maxCount = Math.max(...Object.values(counts));
 
   return (
     <section className="grid-container">
@@ -38,24 +29,27 @@ const PunchCard = ({ data }) => {
       {days.map((day, dayIndex) => (
         <div key={day} className="grid-days">
           <div className="grid-day">{day}</div>
-          {hours.map((hour) => {
-            // gets the count of the current day-hour pair (else 0)
-            const count = counts[`${dayIndex}-${hour}`] || 0;
-            // adapts dot size based on ratio between current count and maxCount (else 0)
-            // multiplies by 20 to display a dot of max size = 20px
-            const size = count ? (count / maxCount) * 20 : 0;
-            return (
-              <div key={hour} className="grid-hour-of-day">
-                <div
-                  className="grid-dot"
-                  style={{
-                    width: `${size}px`,
-                    height: `${size}px`,
-                  }}
-                ></div>
-              </div>
-            );
-          })}
+          {hours.map((hour) => (
+            <div key={`${day}-${hour}`} className="grid-dots">
+              {Object.keys(counts).map((type) => {
+                // gets the count of the current day-hour pair (else 0)
+                const count = counts[type][`${dayIndex}-${hour}`] || 0;
+                // adapts dot size based on ratio between current count and maxCount (else 0)
+                // multiplies by 20 to display a dot of max size = 20px
+                const size = count ? (count / maxCount) * 20 : 0;
+                return (
+                  <div
+                    key={type}
+                    className={`grid-dot ${type}`}
+                    style={{
+                      width: `${size}px`,
+                      height: `${size}px`,
+                    }}
+                  ></div>
+                );
+              })}
+            </div>
+          ))}
         </div>
       ))}
     </section>
@@ -65,5 +59,6 @@ const PunchCard = ({ data }) => {
 export default PunchCard;
 
 PunchCard.propTypes = {
-  data: PropTypes.array,
+  counts: PropTypes.object,
+  maxCount: PropTypes.number,
 };
