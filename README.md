@@ -5,6 +5,8 @@
 1. Connection to SSE stream
 2. Receiving posts and storing useful data for every received post
 3. Punchcard-like grid system to display messages per day and hour
+4. Counter (dynamic) to visualize total of posts received
+5. Simple header and footer
 
 ## Difficulties encountered
 
@@ -45,4 +47,11 @@ Object.entries(obj)[0] => why [0]? because it's already considered an array here
 
 A lot of grid and flex but the result looks ok.
 
+### 3 - How to organize the code
+
+Struggled with how to structure the code so it's not too hard to read.
+
 ## Things to add later
+
+- button to connect / disconnect to SSE stream.
+- french week format: starting by monday instead of sunday. Or option to toggle.
