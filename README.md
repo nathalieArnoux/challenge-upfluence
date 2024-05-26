@@ -6,23 +6,35 @@
 
 ### 1 - SSE
 
-#### What it is
+#### 1 - What is it
 
 I've never used SSE streams before so I had to research it.
 Seems similar to Websockets, but uni-directionel (server-sent) when WS are bi-directional.
 
-#### How to read the data
+#### 2 - How to read the data
 
-I needed to undertsand the form of the data sent so I copied an example taken from the stream:
+I needed to understand the form of the data sent so I copied an example taken from the stream:
 
     data: {"youtube_video":{"id":138486971,"name":"Becoming Super Saiyan ðŸ˜‚ #cat #explore #meme #shorts","description":"","link":"https://www.youtube.com/watch?v=aSnmxMw8bGw","views":31,"comments":0,"likes":1,"dislikes":0,"timestamp":1713383491,"post_id":"aSnmxMw8bGw"}}
 
-#### How to connect to the stream
+#### 3 - EventStream tab
+
+> Network > click on "stream" line > EventStream
+
+Discovered this convenient tab that lets me see the messages received live from the server.
+
+#### 4 - How to connect to the stream
 
 With the EventSource class (https://developer.mozilla.org/en-US/docs/Web/API/EventSource)
 
 New object (OOP?) with SSE URL as parameter
 
     new EventSource("https://stream.upfluence.co/stream")
+
+#### 5 - Treat the data
+
+Object.entries(obj) => returns array of property-value pairs, used to store type on one hand and details on the other, gives easier access to details.
+
+Object.entries(obj)[0] => why [0]? because it's already considered an array here.
 
 ## Things to add later
