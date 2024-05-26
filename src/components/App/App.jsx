@@ -1,4 +1,3 @@
-import "./App.css";
 import handleNewPost from "../../utils/handleNewPost";
 import { useEffect, useState } from "react";
 import Counter from "../Counter/Counter";
@@ -49,16 +48,20 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App bg-bgblue h-screen">
       <header>
-        <h1 className="title">Social Posts Visualization</h1>
+        <h1 className="mx-auto mb-5 pt-2.5 text-center text-2xl font-extrabold">
+          Social Posts Visualization
+        </h1>
       </header>
       <main>
         <Counter postCounts={postCounts} />
         <PunchCard counts={counts} maxCount={maxCount} />
       </main>
       <footer>
-        <p className="footer">Nathalie Arnoux - 2024</p>
+        <p className="pt-[3px] text-center text-xs italic">
+          Nathalie Arnoux - 2024
+        </p>
       </footer>
     </div>
   );
