@@ -1,5 +1,7 @@
 # challenge-upfluence
 
+Deployed at: https://nathaliearnoux.github.io/challenge-upfluence/
+
 ## Content implemented
 
 1. Connection to SSE stream
