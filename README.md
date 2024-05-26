@@ -5,7 +5,7 @@
 1. Connection to SSE stream
 2. Receiving posts and storing useful data for every received post
 3. Punchcard-like grid system to display messages per day and hour
-4. Counter (dynamic) to visualize total of posts received
+4. Counters (dynamic) to visualize number of posts received (total and per type)
 5. Simple header and footer
 
 ## Difficulties encountered
@@ -49,6 +49,7 @@ A lot of grid and flex but the result looks ok.
 
 ### 3 - How to organize the code
 
+Realized a little late that I forgot to handle post types independently so I had to reorganize my code.
 Struggled with how to structure the code so it's not too hard to read.
 
 ## Things to add later
